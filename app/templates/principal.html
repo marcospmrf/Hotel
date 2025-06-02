@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Hotel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Hotel Manager</h2>
+    <a href="{{url_for('home.home')}}">🏠 Home</a>
+    <a href="{{url_for('hospedes.hospedes')}}">🛏️ Hóspedes</a>
+    <a href="{{url_for('reservas.reservas')}}">📅 Reservas</a>
+    <a href="{{url_for('quartos.quartos')}}">🚪 Quartos</a>
+    <a href="{{url_for('financeiro.financeiro')}}">💰 Financeiro</a>
+    <a href="{{url_for('configuracoes.configuracoes')}}">⚙️ Configurações</a>
+    <a href="{{url_for('sair.sair')}}">🚪 Sair</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Bem-vindo(a), ao Hotel Manager</h1>
+    </div>
+
+   <div class="cards">
+  <div class="card">
+    <h3>Total de Quartos</h3>
+    <h2>{{ total_quartos }}</h2>
+  </div>
+  
+  <div class="card">
+    <h3>Reservas de Hoje</h3>
+    <h2>{{ reservas_hoje }}</h2>
+  </div>
+
+  <div class="card">
+    <h3>Hóspedes no Hotel</h3>
+    <h2>{{ hospedes_no_hotel }}</h2>
+  </div>
+  </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastrar Quarto</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f6fa;
+      padding: 40px;
+    }
+
+    .form-box {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 12px 0 4px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    .mensagem {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .mensagem.sucesso {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .mensagem.erro {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Cadastrar Novo Quarto</h2>
+
+    {% if mensagem %}
+      <div class="mensagem {{ 'sucesso' if 'sucesso' in mensagem else 'erro' }}">
+        {{ mensagem }}
+      </div>
+    {% endif %}
+
+   <form enctype="multipart/form-data">
+    <div id="mensagem" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <label for="numero">Número do Quarto</label>
+  <input type="number" name="numero" id="numero" required>
+
+  <label for="tipo">Tipo</label>
+  <input type="text" name="tipo" id="tipo" required>
+
+  <label for="preco">Preço por diária</label>
+  <input type="number" name="preco" id="preco" step="0.01" required>
+
+  <label for="descricao">Descrição</label>
+  <textarea name="descricao" id="descricao"></textarea>
+
+  <label for="imagem">Imagem do quarto</label>
+  <input type="file" name="imagem" id="imagem" accept="image/*" required>
+
+  <button type="submit">Cadastrar Quarto</button>
+</form>
+</div>
+
+  <script src="{{ url_for('static', filename='js/quarto.js') }}"></script>
+
+</body>
+</html>

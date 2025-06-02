@@ -1,0 +1,10 @@
+from .home import bp as home
+from .quartos import bp as quartos
+from .financeiro import bp as financeiro
+from .configuracoes import bp as configuracoes
+from .hospedagem import bp as hospedagem
+from .hospedes import bp as hospedes 
+from .reservas import bp as reservas 
+from .sair import bp as sair
+from .alugar import bp as alugar
+from .novoquarto import bp as quarto
